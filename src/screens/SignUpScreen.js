@@ -13,7 +13,7 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 import { colors } from "../utils/Colors";
 import { useNavigation } from "@react-navigation/native";
 
-const LoginScreen = () => {
+const SignUpScreen = () => {
   const navigation = useNavigation();
   const [secureTxt, setSecureTxt] = useState(true);
 
@@ -25,15 +25,14 @@ const LoginScreen = () => {
           name={"arrow-back-outline"}
           color={colors.primary}
           size={30}
-          onPress={()=>navigation.goBack()}
+          onPress={()=>navigation.navigate("HOME")}
         />
       </TouchableOpacity>
 
       {/* Heading */}
       <View style={styles.txtContainer}>
-        <Text style={styles.headingTxt}>Hey,</Text>
-        <Text style={styles.headingTxt}>Welcome</Text>
-        <Text style={styles.headingTxt}>Back</Text>
+        <Text style={styles.headingTxt}>Let's get</Text>
+        <Text style={styles.headingTxt}>started</Text>
       </View>
 
       {/* Input Fields Like Email/Password */}
@@ -46,6 +45,16 @@ const LoginScreen = () => {
             placeholder="Enter Your Email."
             placeholderTextColor={colors.secondary}
             keyboardType="email-address"
+          />
+        </View>
+          {/* Input Phone Number With Phone Logo */}
+          <View style={styles.inputContainer}>
+          <SimpleLineIcons name={"screen-smartphone"} size={30} color={colors.grey} />
+          <TextInput
+            style={styles.txtInput}
+            placeholder="Enter Your Number."
+            placeholderTextColor={colors.secondary}
+            keyboardType="numeric"
           />
         </View>
         {/* Input Password With Password Logo */}
@@ -62,14 +71,9 @@ const LoginScreen = () => {
           </TouchableOpacity>
         </View>
 
-        {/* Forget Password Text. */}
-        <TouchableOpacity>
-          <Text style={styles.forgotpaswordtxt}>Forgot Password?</Text>
-        </TouchableOpacity>
-
         {/* Login Button Text. */}
         <TouchableOpacity style={styles.loginButtonWraper}>
-          <Text style={styles.loginTxt}>Login</Text>
+          <Text style={styles.loginTxt}>Sign Up</Text>
         </TouchableOpacity>
 
         <Text style={styles.contunuetxt}>or continue with</Text>
@@ -84,10 +88,10 @@ const LoginScreen = () => {
         </TouchableOpacity>
 
         <View style={styles.footerContainer}>
-          <Text>Don't have an account?</Text>
+          <Text>Already have an account!</Text>
           <Text style={{ color: colors.primary, fontWeight: "bold" }}
-           onPress={()=>navigation.navigate("SIGNUP")}>
-            Sign Up
+          onPress={()=>navigation.navigate("LOGIN")}>
+            Login
           </Text>
         </View>
       </View>
@@ -95,7 +99,7 @@ const LoginScreen = () => {
   );
 };
 
-export default LoginScreen;
+export default SignUpScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -136,12 +140,6 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 10,
     fontWeight: "300",
-  },
-  forgotpaswordtxt: {
-    textAlign: "right",
-    color: colors.primary,
-    fontWeight: 350,
-    marginVertical: 10,
   },
   loginButtonWraper: {
     backgroundColor: colors.primary,
@@ -188,3 +186,4 @@ const styles = StyleSheet.create({
     gap: 5,
   },
 });
+

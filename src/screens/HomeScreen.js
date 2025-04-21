@@ -11,11 +11,17 @@ import { colors } from "../utils/Colors";
 import { useNavigation } from "@react-navigation/native";
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
 
-const navigation=useNavigation();
-const openLogin=()=>{
-    navigation.navigate("LOGIN")
-}
+   {/* Login Screen Navigation */}
+  const openLogin = () => {
+    navigation.navigate("LOGIN");
+  };
+
+   {/* Sign-Up Screen Navigation */}
+  const openSignup = () => {
+    navigation.navigate("SIGNUP");
+  };
 
   return (
     <View style={styles.container}>
@@ -33,16 +39,19 @@ const openLogin=()=>{
       </Text>
 
       <View style={styles.buttonContainer}>
-
-        <TouchableOpacity style={[styles.loginButtonWraper,{backgroundColor:colors.primary}]}
-        onPress={openLogin}>
+        <TouchableOpacity
+          style={[
+            styles.loginButtonWraper,
+            { backgroundColor: colors.primary },
+          ]}
+          onPress={openLogin}
+        >
           <Text style={styles.loginButtonText}>Login</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.loginButtonWraper]}>
+        <TouchableOpacity style={[styles.loginButtonWraper]} onPress={openSignup}>
           <Text style={styles.signUpButtonText}>Sign-Up</Text>
         </TouchableOpacity>
-
       </View>
     </View>
   );
@@ -94,30 +103,16 @@ const styles = StyleSheet.create({
   loginButtonWraper: {
     justifyContent: "center",
     alignItems: "center",
-    width:"50%",
-    borderRadius:100,
+    width: "50%",
+    borderRadius: 100,
   },
-  loginButtonText:{
-    color:colors.white,
-    fontSize:18,
-    fontWeight:"400",
+  loginButtonText: {
+    color: colors.white,
+    fontSize: 18,
+    fontWeight: "400",
   },
-  signUpButtonText:{
-    fontSize:18,
-    fontWeight:"400",
-  }
+  signUpButtonText: {
+    fontSize: 18,
+    fontWeight: "400",
+  },
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
